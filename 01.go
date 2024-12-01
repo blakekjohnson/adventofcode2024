@@ -20,6 +20,10 @@ func main() {
     return a - b
   })
 
+  // Calculate the similarity score
+  similarity := calc_similarity(left_list, right_list)
+  fmt.Println(similarity)
+
   // Calculate the differences
   diffs := calc_diffs(left_list, right_list)
   fmt.Println(diffs)
@@ -63,5 +67,24 @@ func calc_diffs(left_list []int, right_list []int) []int {
   }
 
   return diffs
+}
+
+// Calculate a similarity score
+func calc_similarity(left_list []int, right_list []int) int {
+  var similarity int = 0
+
+  for _, left := range left_list {
+    var occurrences int = 0
+
+    for _, right := range right_list {
+      if left == right {
+        occurrences += 1
+      }
+    }
+
+    similarity += (left * occurrences)
+  }
+
+  return similarity
 }
 
