@@ -20,20 +20,17 @@ func main() {
     return a - b
   })
 
-  // Calculate the similarity score
-  similarity := calc_similarity(left_list, right_list)
-  fmt.Println(similarity)
-
   // Calculate the differences
   diffs := calc_diffs(left_list, right_list)
-  fmt.Println(diffs)
-
-  // Print the total difference
   var total_diff int = 0
   for _, diff := range diffs {
     total_diff += diff
   }
-  fmt.Println(total_diff)
+  fmt.Printf("Difference: %d\n", total_diff)
+
+  // Calculate the similarity score
+  similarity := calc_similarity(left_list, right_list)
+  fmt.Printf("Similarity Score: %d\n", similarity)
 }
 
 // Read two lists from standard input and return to slices
